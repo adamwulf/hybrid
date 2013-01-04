@@ -304,6 +304,7 @@ img.wp-smiley {
 /* Main content */
 .content {
 	margin: 0 0 21px 0;
+	padding: 0 0 2px 0;
 	}
 .no-widgets .content, .page-template-no-widgets .content {
 	width: 960px;
