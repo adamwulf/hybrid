@@ -93,8 +93,8 @@ function hybrid_theme_setup_theme() {
 
 	/* Add the title, byline, and entry meta before and after the entry. */
 	add_action( "{$prefix}_before_entry", 'hybrid_entry_title' );
-	add_action( "{$prefix}_before_entry", 'hybrid_byline' );
-	add_action( "{$prefix}_after_entry", 'hybrid_entry_meta' );
+	add_action( "{$prefix}_after_entry", 'hybrid_byline' );
+/* 	add_action( "{$prefix}_after_entry", 'hybrid_entry_meta' ); */
 
 	/* Add the after singular sidebar and custom field series extension after singular views. */
 	add_action( "{$prefix}_after_singular", 'hybrid_get_utility_after_singular' );
