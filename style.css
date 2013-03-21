@@ -28,6 +28,10 @@ div.menu ul{margin:0;padding:0;list-style:none;line-height:1.0}div.menu ul ul{po
 /* WP.org theme repository requirements. */
 .sticky, .bypostauthor {}
 
+#primary-menu li.current-menu-item a {
+	border-color: black;
+	}
+
 /* Body */
 body {
 	font: normal normal normal 15px/21px Georgia, Times, "Times New Roman", serif;
@@ -422,6 +426,18 @@ p.page-links a, .comment-pagination .page-numbers {
 .widget-title {
 	font-size: 18px;
 	color: #111;
+	}
+.widget img[align=left] {
+	margin-right: 10px;
+	}
+ 
+.widget img.icon {
+	position: relative;
+	top: 3px;
+	width: 16px;
+	height: 16px;
+	margin-right: 2px;
+	margin-left: 2px;
 	}
 
 /* Utility widget areas */

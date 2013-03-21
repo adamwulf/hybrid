@@ -92,7 +92,7 @@ function hybrid_theme_setup_theme() {
 	add_action( "{$prefix}_before_content", 'hybrid_get_utility_before_content' );
 
 	/* Add the title, byline, and entry meta before and after the entry. */
-	add_action( "{$prefix}_before_entry", 'hybrid_entry_title' );
+	add_action( "{$prefix}_before_entry", 'hybrid_post_only_title' );
 	add_action( "{$prefix}_before_entry", 'hybrid_byline' );
 	add_action( "{$prefix}_after_entry", 'hybrid_entry_meta' );
 
@@ -202,7 +202,7 @@ function hybrid_theme_body_class( $classes ) {
  */
 function hybrid_breadcrumb() {
 	if ( current_theme_supports( 'breadcrumb-trail' ) )
-		breadcrumb_trail( array( 'front_page' => false ) );
+		breadcrumb_trail( array( 'front_page' => false, 'min_depth' => 3 ) );
 }
 
 /**
@@ -400,4 +400,17 @@ function hybrid_other_feed_link( $link ) {
 	return $link;
 }
 
+
+/** custom **/
+
+/**
+ * Displays the post title.
+ *
+ * @since 1.2.0
+ */
+function hybrid_post_only_title() {
+	if ( 'post' == get_post_type()){
+		echo apply_atomic_shortcode( 'entry_title', '[entry-title]' );
+	}
+}
 ?>
