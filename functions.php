@@ -20,9 +20,9 @@
  *
  * @package Hybrid
  * @subpackage Functions
- * @version 1.1.0
+ * @version 1.2.0
  * @author Justin Tadlock <justin@justintadlock.com>
- * @copyright Copyright (c) 2008 - 2012, Justin Tadlock
+ * @copyright Copyright (c) 2008 - 2013, Justin Tadlock
  * @link http://themehybrid.com/themes/hybrid
  * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
@@ -52,8 +52,8 @@ function hybrid_theme_setup_theme() {
 	add_theme_support( 'hybrid-core-widgets' );
 	add_theme_support( 'hybrid-core-shortcodes' );
 	add_theme_support( 'hybrid-core-theme-settings', array( 'about', 'footer' ) );
-	add_theme_support( 'hybrid-core-drop-downs' );
-	add_theme_support( 'hybrid-core-seo' );
+	add_theme_support( 'hybrid-core-scripts', array( 'drop-downs' ) );
+	add_theme_support( 'hybrid-core-styles' );
 	add_theme_support( 'hybrid-core-template-hierarchy' );
 	add_theme_support( 'hybrid-core-deprecated' );
 
@@ -93,8 +93,8 @@ function hybrid_theme_setup_theme() {
 
 	/* Add the title, byline, and entry meta before and after the entry. */
 	add_action( "{$prefix}_before_entry", 'hybrid_entry_title' );
-	add_action( "{$prefix}_after_entry", 'hybrid_byline' );
-/* 	add_action( "{$prefix}_after_entry", 'hybrid_entry_meta' ); */
+	add_action( "{$prefix}_before_entry", 'hybrid_byline' );
+	add_action( "{$prefix}_after_entry", 'hybrid_entry_meta' );
 
 	/* Add the after singular sidebar and custom field series extension after singular views. */
 	add_action( "{$prefix}_after_singular", 'hybrid_get_utility_after_singular' );
@@ -163,16 +163,16 @@ function hybrid_theme_register_sidebars() {
  * @since 0.9.0
  */
 function hybrid_theme_body_class( $classes ) {
-	global $wp_query, $is_lynx, $is_gecko, $is_IE, $is_opera, $is_NS4, $is_safari, $is_chrome;
+	global $is_lynx, $is_gecko, $is_IE, $is_opera, $is_NS4, $is_safari, $is_chrome;
 
 	/* Singular post classes (deprecated). */
 	if ( is_singular() ) {
 
 		if ( is_page() )
-			$classes[] = "page-{$wp_query->post->ID}"; // Use singular-page-ID
+			$classes[] = 'page-' . get_queried_object_id(); // Use singular-page-ID
 
 		elseif ( is_singular( 'post' ) )
-			$classes[] = "single-{$wp_query->post->ID}"; // Use singular-post-ID
+			$classes[] = 'single-' . get_queried_object_id(); // Use singular-post-ID
 	}
 
 	/* Browser detection. */
@@ -272,10 +272,9 @@ function hybrid_navigation_links() {
  * @since 0.2.1
  */
 function hybrid_footer_insert() {
-	$footer_insert = hybrid_get_setting( 'footer_insert' );
-
-	if ( !empty( $footer_insert ) )
-		echo '<div class="footer-content footer-insert">' . do_shortcode( $footer_insert ) . '</div>';
+	echo '<div class="footer-content footer-insert">';
+	hybrid_footer_content();
+	echo '</div>';
 }
 
 /**
@@ -286,12 +285,11 @@ function hybrid_footer_insert() {
  * @since 0.9.0
  */
 function hybrid_theme_remove_sidebars( $sidebars_widgets ) {
-	global $wp_query;
 
 	if ( is_singular() ) {
-		$template = get_post_meta( $wp_query->post->ID, "_wp_{$wp_query->post->post_type}_template", true );
+		$post = get_queried_object();
 
-		if ( 'no-widgets.php' == $template || "{$wp_query->post->post_type}-no-widgets.php" == $template )
+		if ( hybrid_has_post_template( 'no-widgets.php' ) || hybrid_has_post_template( "{$post->post_type}-no-widgets.php" ) )
 			$sidebars_widgets = array( false );
 	}
 

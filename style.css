@@ -1,9 +1,16 @@
 /**
- * Development stylesheet.  Use this file for development purposes by adding this to your 'wp-config.php' file:
- * define( 'SCRIPT_DEBUG', true );
- * This allows you to build large-sized stylesheets with plenty notes and comments. Before releasing, compress
- * this file and replace the compressed CSS in the 'style.css' file.
- * @link http://www.cssdrive.com/index.php/main/csscompressor
+ * Theme Name: Hybrid
+ * Theme URI: http://themehybrid.com/themes/hybrid
+ * Description: A user-friendly, search-engine optimized parent theme, featuring 15 custom page templates and multiple widget-ready areas, allowing you to create any type of site you want. 
+ * Version: 1.2
+ * Author: Justin Tadlock
+ * Author URI: http://justintadlock.com
+ * Tags: theme-options, threaded-comments, microformats, translation-ready, rtl-language-support, one-column, two-columns, right-sidebar, fixed-width, sticky-post, custom-menu, full-width-template, featured-images
+ * License: GNU General Public License v2.0
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * Copyright (c) 2008 - 2013 Justin Tadlock.
+ * http://justintadlock.com
  */
 
 /* Get base CSS */
@@ -304,7 +311,6 @@ img.wp-smiley {
 /* Main content */
 .content {
 	margin: 0 0 21px 0;
-	padding: 0 0 2px 0;
 	}
 .no-widgets .content, .page-template-no-widgets .content {
 	width: 960px;
@@ -560,25 +566,3 @@ textarea {
 	float: right;
 	width: 300px;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-/** addendums **/
-
-
-.wp-pagenavi a, .wp-pagenavi span {
-text-decoration: none;
-border: 1px solid #BFBFBF;
-padding: 3px 5px;
-margin: 2px;
-display: inline-block;
-min-width: 20px;
-text-align: center;
-min-height: 20px;
-line-height: 20px;
-}
