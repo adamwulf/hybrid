@@ -88,9 +88,9 @@ function hybrid_theme_setup_theme() {
 	add_action( "{$prefix}_after_container", 'hybrid_get_secondary' );
 
 	/* Add the breadcrumb trail and before content sidebar before the content. */
-	add_action( "{$prefix}_before_content", 'google_author' );
 	add_action( "{$prefix}_before_content", 'hybrid_breadcrumb' );
 	add_action( "{$prefix}_before_content", 'hybrid_get_utility_before_content' );
+	add_action( "{$prefix}_after_content", 'google_author' );
 
 	/* Add the title, byline, and entry meta before and after the entry. */
 	add_action( "{$prefix}_before_entry", 'hybrid_post_only_title' );
@@ -125,7 +125,7 @@ function hybrid_theme_setup_theme() {
 
 
 function google_author(){
-	echo '<span style="visibility:hidden">';
+	echo '<span style="visibility:hidden;position: absolute;">';
 	echo '<a href="https://plus.google.com/110320584297273840946?rel=author">Google Author link</a>';
 	echo '</span>';
 }
