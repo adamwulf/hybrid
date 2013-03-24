@@ -19,8 +19,8 @@ get_header(); // Loads the header.php template. ?>
 		--><?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?><!--
 			--><div id="post-<?php the_ID(); ?>" class="<?php hybrid_entry_class(); ?>"><!--
 			--><?php do_atomic( 'before_entry' ); // hybrid_before_entry ?><!--
-				--><div class="entry-content">
-					<?php the_content(); ?>
+				--><div class="entry-content"><!--
+					--><?php the_content(); ?>
 					<?php wp_link_pages( array( 'before' => '<p class="page-links pages">' . __( 'Pages:', 'hybrid' ), 'after' => '</p>' ) ); ?>
 				</div><!-- .entry-content -->
 

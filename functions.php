@@ -228,9 +228,7 @@ function hybrid_entry_title() {
  * @since 0.5.0
  */
 function hybrid_byline() {
-
 	$byline = '';
-
 	if ( 'post' == get_post_type() && 'link_category' !== get_query_var( 'taxonomy' ) )
 		$byline = '<p class="byline">' . __( 'By [entry-author] on [entry-published] [entry-edit-link before=" | "]', 'hybrid' ) . '</p>';
 

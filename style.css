@@ -64,7 +64,10 @@ a:hover, a:active {
 	color: #d54e21;
 	text-decoration: underline;
 	}
-
+.hentry img[src*="smilies"] {
+	border-width: 0px;
+	margin-bottom: -5px;
+	}
 /* Headers */
 h1, h2, h3, h4, h5, h6 {
 	font-family: Arial, Verdana, sans-serif;
@@ -77,6 +80,9 @@ h3 { font-size: 16px; }
 h4 { font-size: 14px; }
 h5 { font-size: 13px; }
 h6 { font-size: 13px; }
+h2:first-child {
+	margin-top: 0;
+	}
 
 /* Lists */
 ul {
@@ -539,7 +545,7 @@ li li li li li li li li li li.comment {
 
 /* Respond textarea */
 textarea {
-	width: 98%;
+	width: 94%;
 	}
 
 /* Submit and rest buttons */
