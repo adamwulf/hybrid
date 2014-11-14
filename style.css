@@ -66,7 +66,7 @@ a:hover, a:active {
 	}
 .hentry img[src*="smilies"] {
 	border-width: 0px;
-	margin-bottom: -5px;
+	margin-bottom: -3px;
 	}
 /* Headers */
 h1, h2, h3, h4, h5, h6 {
@@ -211,7 +211,8 @@ img.alignleft, img.alignright {
 
 /* Smiley */
 img.wp-smiley {
-	max-width: 12px;
+	max-width: 15px;
+	max-height: 15px;
 	padding: 0;
 	background: transparent;
 	border: none;
@@ -383,6 +384,9 @@ img.wp-smiley {
 .entry-content {
 	margin: 0 0 10px 0;
 	}
+.entry-content a{
+	text-decoration: underline;
+}
 
 /* Entry metadata */
 .entry-meta {
@@ -597,3 +601,18 @@ textarea {
 	float: right;
 	width: 300px;
 	}
+	
+	
+	
+	
+	
+/* Comment adjustments */
+span.comment-author.vcard{
+	display:block;
+}
+div.comment-meta.comment-meta-data{
+	margin:5px 0 10px 0;
+}
+div.comment-text{
+	margin:0;
+}
