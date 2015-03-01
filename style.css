@@ -616,3 +616,70 @@ div.comment-meta.comment-meta-data{
 div.comment-text{
 	margin:0;
 }
+
+
+
+.hentry .aside{
+	margin: 10px;
+	padding: 10px;
+	border: 1px solid #454545;
+	background: #efefef;
+	float:right;
+	width: 200px;
+}
+
+.hentry .aside p{
+	margin-bottom: 8px;
+}
+
+.hentry .aside img{
+	margin: 0;
+	padding:0;
+	border:0;
+}
+
+.hentry img{
+	margin: 0;
+}
+
+
+div.canonical{
+	font-size:smaller;
+	margin:-18px 0 20px 20px;
+	border-bottom:1px solid #ACACAC;
+}
+
+
+/** podcast interviews from interviewed.io **/
+
+div.interviews ul{
+	list-style:none;
+	margin:0;
+}
+
+div.interviews ul .interviewed_list--item--media{
+	float: left;
+}
+div.interviews ul .interviewed_list--item--media img{
+	max-height: 110px;
+}
+div.interviews li{
+	min-height: 110px;
+}
+div.interviews ul .interviewed_list--item--meta{
+	margin-left: 140px;
+}
+div.interviews ul .interviewed_list--item--meta h2{
+	font-size: 12pt;
+}
+div.interviews ul .interviewed_list--item--meta h3{
+	font-size: 10pt;
+	margin:0 14px 0 0;
+	float:left;
+}
+div.interviews ul .interviewed_list--item--meta .interviewed_list--item--description{
+/* 	display: none; */
+}
+#interviewed-embedder-person-slug-div p:last{
+	clear:both;
+}

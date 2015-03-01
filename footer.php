@@ -33,6 +33,6 @@
 
 <?php do_atomic( 'after_html' ); // hybrid_after_html ?>
 <?php wp_footer(); // wp_footer ?>
-
+<script src="https://platform.vine.co/static/scripts/embed.js"></script>
 </body>
 </html>
